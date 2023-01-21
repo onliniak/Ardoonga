@@ -1,33 +1,44 @@
 # Ardoonga
 RPG Engine with plugins
 
-## Co to ?
+5 lat temu grałem sobie w zapomnianego przez świat [klona](http://ojci3c.webd.pl/magan/) Vallheru. [Właściwie to wtedy zacząłem się uczyć PHP, by zrozumieć jak wygrać.] Z jednym z graczy zaczęliśmy się zastanawiać jakby tu odmienić losy świata, przywrócić kosmiczną równowagę i takie tam. Stwierdziłem wtedy, że najprościej zrobić nową grę. Ostatecznie nic z tego nie wyszło, po prostu wiem że nie da się spełnić wszystkich oczekiwań ludziów. Po za tym ciężko jest skupić się na kilkunastu mini projektach jednocześnie. Taki pracownik … ten to musi mieć dobrze, dostaje wycinek projektu i nic więcej go nie interesuje. Ale skoro już zmarnowałem tyle czasu na badania … oto najważniejsze zmiany, które mogę w tej chwili wprowadzić albo powinienem ale jeszcze nie wiem jak.
 
-### TLDR
+## Funkcjonalność
 
-Vallheru z obsługą wtyczek i szybszym serwerem.
+### Wtyczki
 
-To repozytorium będzie pełne linków do poszczególnych części projektu. W dyskusjach będą wymienione wszystkie decyzje odnośnie projektu, wraz z wskazówkami jak zaproponować swoje zmiany.
+Najważniejsza zmiana, której nikt nie doceni. Gra nie jest już świadoma ile właściwie ma miast, ras i klas. Możesz je zmienić praktycznie w każdej chwili. Problem w tym, że zaraz pojawią się głosy "Mogę skopiować [D&D 3.5](https://archive.org/details/dnd35srd)/[D&D 5](https://media.wizards.com/2016/downloads/DND/SRD-OGL_V5.1.pdf) ?", "A opisy i zdjęcia z Vallheru/Orodlina ?" albo jeszcze lepiej "weźmy przenieśmy cały świat z Władcy Pierścieni". Z wyznawcami GPL (Vallheru, Orodlin) nie ma żadnego problemu, z D&D raczej nie będzie problemu o ile wykorzystamy Basic Rules, ze wszystkim innym będą już problemy prawne.
 
-### Historia
+### Indywidualne statystyki
 
-5 lat temu grałem w jednego z klonów Vallheru Magan. Potem przez chwilę w zainspirowany Vallheru Amorion. Zastanawialiśmy się z jednym z paru aktywnych graczy jak tu uzdrowić tę grę. 
-W tamtym czasie mieliśmy jedną graczkę (lepszych słów nie mieli ?) fabularną, która siedziała cicho. Jedną doradczynię królewską twierdzącą, że bez pomocy kogoś technicznego wiele nie zrobi. 2 w miarę normalnych graczy i nazistkę w karczmie. I chwilowo ożywiliśmy króla. 
+Każdy gracz powinien mieć swoje własne statystyki, a nie że połowa strony jest w zerach.
 
-Wtedy powstał pomysł na stworzenie nowej gry. Upadł przez arcywroga moich poprzedników - inne spojrzenie na świat. Maleńkich szczególików jest tak dużo, że nie wiadomo na czym się dokładnie skupić.
+### Wsparcie dla generatorów lochów
 
-### Dłuższa wersja
+Zamiast tworzyć nowy generator można użyć [Twine](https://twinery.org/). Tylko ryzykuję, że pewnego dnia przestanie to działać.
 
-Z punktu widzenia graczy mechanicznych najważniejsza jest liczba potworów, ras i miast. Z punktu widzenia gry ponad wszelką wątpliwość mogę użyć wszystkich statystyk z Vallheru, Orodlinu i ich bezpośrednich klonów (na przykład Amorion się nie liczy). Prawie na pewno mogę też użyć wszystkich mechanik z [D&D 5 Basic Rules¹](https://www.dndbeyond.com/monsters?filter-search=&filter-source=1&filter-type=0) (oraz [D&D 3.5 Basic Rules](https://archive.org/details/dnd35srd)). Już o wszelkich mitologiach świata nie wspominając. Razem mam dostęp do bazy ponad 300 potworów z gotowymi statystykami. Miasto było problemem w czasach Vallheru (obie miejscowości były na stałe zapisane w plikach), obecnie gra nie musi wiedzieć ile miast dokładnie istnieje. Mogę dodać ich 1 000.
+W ogóle raz próbowałem się bawić w gracza fabularnego. Myślałem, że Mistrz Gry ogranicza się do opisywania kolejnych lokacji i wymyślania jak świat reaguje na najgłupsze zachowania w stylu zbuduję se procę i zaatakuję zamek od skrzyni. Może gdyby gracze mogli opisywać lokacje i zostawiać w nich przedmioty i wskazówki dla innych poszukiwaczy ?
 
-Z punktu widzenia graczy fabularnych najważniejsze jest poczucie świata, w którym żyją. Tutaj Vallheru i Amorion zalecają umożliwienie stworzenia swojego profilu fabularnego, dostęp do osobnej kategorii na forum i poczty. To da się załatwić. Ale z tą immersją … jedyną grą która przeniosła mnie w czasie było Red Dead Redemption II. I jeśli miałbym stworzyć porównywalny świat … raczej nie jestem w stanie tego zrobić. Właściwie to myślałem przez chwilę nad stworzeniem nieprzyjaznego świata jak w Long Dark, do którego trzeba się przystosować by przeżyć. Doradzono mi, żebym zbyt wiele nie kombinował. Dlatego najchętniej wprowadziłbym po prostu system wtyczek. Serwer jest ukryty, statystyki i teksty są tworzone przez graczy. Połączeniem serwera z przeglądarką i zamianą plików MS Worda na opisy zajmuje się zespół techniczny. Gracz musi tylko dostarczyć swoje materiały i uruchomić aplikację.
+### Blockchain
 
-Z punktu widzenia gry Vallheru było stworzone z myślą o wszystkich przeglądarkach świata i legendarnych białych monitorach 768p. Obecnie jest dokładnie na odwrót. Mamy niezliczoną ilość ekranów - od smartfoników 4.5", przez komputery Full HD, aż po telewizory 4K. Przeglądarki od czasów Firefoxa 52 ESR na Windowsa XP są ze sobą dość zgodne. Mogę mieć stronę, która teoretycznie zadziała na Windowsie 11 i Vista bez żadnych zmian. W praktyce miałem laptopa 512MB ram dwurdzeniowy, który zawieszał się na wszystkim oprócz Wikipedii. Nie wiem też ilu dokładnie będzie graczy online. Nawet jeśli serwer wytrzyma 250 osób bez najmniejszego problemu, to za bazę danych płacę od pojedynczego wyświetlenia.
+Teoretycznie można by wykorzystać darmowy serwer [WebSocket](https://www.piesocket.com/blog/free-websocket-server) oraz [Ethereum](https://api.blockcypher.com/v1/eth/main) jako podstawę uproszczonego blockchaina. W ten sposób gracze mogli by zamieniać energię w statystyki na swoich przeglądarkach. By wykluczyć oszustwa wybrani uczestnicy mieliby prawo do odrzucenia dowolnej transakcji. Co byłoby sprzeczne z zasadami Blockchaina.
 
-<small>¹ Mogę użyć wszystkiego, co zostało wymienione w https://media.wizards.com/2016/downloads/DND/SRD-OGL_V5.1.pdf pod warunkiem, że nie zmienię warunków licencji. Problem w tym, że cały **kod** musi być zgodny z General Public License albo naruszę zasady korzystania z zasobów Vallheru. Na moje oko mogę użyć **plików konfiguracyjnych** z statystykami. Nie są **kodem**, więc obie licencje mogą istnieć obok siebie. Ale prawnikiem nie jestem.</small>
+### Walka
 
-## Skąd nazwa ?
+Cały czas się zastanawiam, czy przy pomocy wzorów fizycznych nie dałoby się zrobić automatycznego systemu walki. Wystarczyłoby dynamiczne przebijanie zbroi. Zamiast obrażeń i siły miecza, podawałoby się jego długość, materiał i wagę. Tyle że ostatnio powstało już parę gier o walce na miecze (Mount&Blade, Kingdom Deliverance, Hellish Quart) i parodia nie jest tu nikomu potrzebna.
 
-- Mogę użyć końcówek z https://www.freenom.com/en/freeandpaiddomains.html
-- Ardoon to ulica w Maryland, USA.
-- Kiedyś chciałem otworzyć bieda hosting ardoon.ga, więc nazwę miałem już zarezerwowaną.
+### <s>Niemożliwa</s> Atmosfera ?
+
+*Tutaj najważniejsza jest atmosfera, nie nabijanie statystyk. To gra tekstowa, więc jako gracz będziesz musiał wykazać się wyobraźnią i ciekawymi pomysłami.*
+
+Wszystko ładnie, tyle że **ta gra to nic innego jak nabijanie statystyk**. Co z tego, że otworzyłem firmę budowlaną ? Że stałem się najlepszym rzemieślnikiem znanego świata ? Że zbudowałem klan na wyspie, który jako jedyny wiedział jak wygrać grę ? 99% czasu spędza się na klikaniu w miniaturowe linki i podnoszeniu statystyk do absurdalnych wielkości. Tak właściwie to autentyczne światy są bardzo rzadkie. Najbliżej jest Red Dead Redemption 2. Mi najprawdopodobniej nie uda się stworzyć niczego takiego.
+
+### Rozmowy globalne
+
+Obecnie mamy 2 standardy W3C (ActivityPub i MicroPub) oraz jeden prywatny standard Diaspory. I kilka mniejszych, których nikt nie używa. Wszystkie próbują odpowiedzieć na to samo pytanie - jak wysyłać wiadomości, eventy i polubienia między różnymi aplikacjami. Nawet Konfederacja włączyła się do [walki o wolność](https://twitter.com/krzysztofbosak/status/1348952744137285632). Problem w tym, że ActivityPub jest napisany ogólnie. Istnieje kilka wersji niekompatybilnych między sobą. I jeśli wprowadzę coś takiego to zaraz posypią się skargi "Dlaczego to nie działa jak Facebook ?", "dlaczego nie mogę wysłać wiadomości do Twittera ?", "X to otwarta sieć społecznościowa ale nie działa !!!". Z drugiej strony … jeśli tworzę grę opartą o wysyłanie wiadomości między sobą, możliwość rozmiawiania z całym światem byłaby cenna. Od strony kosztów mogę mieć jakieś 6.5 miliona wiadomości za darmo. Potem $0.015/GB.
+
+Wewnętrznie użyłbym Diaspory API.
+
+## Co dalej ?
+
+Pewnie zamiast to wszystko opisywać powinienem zaprezentować przynajmniej jakiś demko. Teraz się tym zajmie.
