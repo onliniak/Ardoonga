@@ -1,44 +1,42 @@
 # Ardoonga
 RPG Engine with plugins
 
-5 lat temu grałem sobie w zapomnianego przez świat [klona](http://ojci3c.webd.pl/magan/) Vallheru. [Właściwie to wtedy zacząłem się uczyć PHP, by zrozumieć jak wygrać.] Z jednym z graczy zaczęliśmy się zastanawiać jakby tu odmienić losy świata, przywrócić kosmiczną równowagę i takie tam. Stwierdziłem wtedy, że najprościej zrobić nową grę. Ostatecznie nic z tego nie wyszło, po prostu wiem że nie da się spełnić wszystkich oczekiwań ludziów. Po za tym ciężko jest skupić się na kilkunastu mini projektach jednocześnie. Taki pracownik … ten to musi mieć dobrze, dostaje wycinek projektu i nic więcej go nie interesuje. Ale skoro już zmarnowałem tyle czasu na badania … oto najważniejsze zmiany, które mogę w tej chwili wprowadzić albo powinienem ale jeszcze nie wiem jak.
+Tak właściwie nie jest to kompletna gra (jak Vallheru 1.6), a raczej platforma dla moderów. I nie mam najmniejszego pojęcia jak stworzyć wciągający, klimatyczny świat w stylu średniowiecznym.
 
-## Funkcjonalność
+---
 
-### Wtyczki
+Zasada działania Ardoongi:
 
-Najważniejsza zmiana, której nikt nie doceni. Gra nie jest już świadoma ile właściwie ma miast, ras i klas. Możesz je zmienić praktycznie w każdej chwili. Problem w tym, że zaraz pojawią się głosy "Mogę skopiować [D&D 3.5](https://archive.org/details/dnd35srd)/[D&D 5](https://media.wizards.com/2016/downloads/DND/SRD-OGL_V5.1.pdf) ?", "A opisy i zdjęcia z Vallheru/Orodlina ?" albo jeszcze lepiej "weźmy przenieśmy cały świat z Władcy Pierścieni". Z wyznawcami GPL (Vallheru, Orodlin) nie ma żadnego problemu, z D&D raczej nie będzie problemu o ile wykorzystamy Basic Rules, ze wszystkim innym będą już problemy prawne.
+- https://json-editor.github.io/json-editor/ umożliwia generowanie skryptów według schematu.
+- Ardoonga Team tworzy, aktualizuje i usuwa przestarzałe schematy (JSON Schema 7).
+- Generator SSG przetwarza skrypty konfiguracyjne.
+- Treść ukryta jest wysyłana do serwera.
+- Program nie jest świadomy istnienia miast, ras, klas.
+- Z tego powodu można używać publicznego serwera. Nie trzeba nic konfigurować.
+- Ze względu na balans kluczowe statystyki (jak zmęczenie) określa Ardoonga Team.
+- Konto króla odpowiednio ograniczone.
+- Serwer używa zdalnie pobieranych plików [WebAssembly](https://wapm.io/) do obliczeń (FaaS).
+- Co umożliwia moderom zmianę mechaniki wedle swego życzenia.
+- Wiadomości i strony profilowe są zapisywane w Amazon's S3.
+- Dla rzemieślników możliwość zatrudnienia pracowników NPC i łatwiejsze zawieranie umów handlowych z graczami.
+- Indywidualne statystyki i umiejętności (NoSQL lub JSON).
 
-### Indywidualne statystyki
+Jeśli chodzi o konta administratorów [RelMe](https://microformats.org/wiki/rel-me) wydaje się jedynym rozwiązaniem. <br />
+Zarządzanie użytkownikami lepiej powierzyć Auth0. Z dodatkową możliwością zalogowania się z Ethereum. <br />
 
-Każdy gracz powinien mieć swoje własne statystyki, a nie że połowa strony jest w zerach.
+Fazy:
 
-### Wsparcie dla generatorów lochów
+1. JSON Schema'sy.
+2. SSG.
+3. Interfejs mechaniczny.
+4. Logowanie.
+5. Serwer.
 
-Zamiast tworzyć nowy generator można użyć [Twine](https://twinery.org/). Tylko ryzykuję, że pewnego dnia przestanie to działać.
+---
 
-W ogóle raz próbowałem się bawić w gracza fabularnego. Myślałem, że Mistrz Gry ogranicza się do opisywania kolejnych lokacji i wymyślania jak świat reaguje na najgłupsze zachowania w stylu zbuduję se procę i zaatakuję zamek od skrzyni. Może gdyby gracze mogli opisywać lokacje i zostawiać w nich przedmioty i wskazówki dla innych poszukiwaczy ?
+Od strony samych graczy … <br />
+Myślałem nad prostym silnikiem fizycznym do walki mieczem. Coś na zasadzie mam 70 cm miecz w prawej ręce, wybieram sobie atak z boku, od góry lub po skosie. Atak mogę poprzedzić krokiem do przodu, czy półobrotem. Silnik oblicza w które miejsce i z jaką siłą uderzę. Wtedy oblicza jakość pancerza przeciwnika i jego zdolność do odbicia mojego ciosu. Bardziej realistyczna walka bronią, niszczenie zbroi i obrażenia. Ale jak wtedy wytłumaczyć walkę z wilkami i szczurami ?
 
-### Blockchain
+Albo miksturki lecznicze. Coś takiego musiałoby dostarczyć energii + natychmiast zapobiec krwawieniu i zakażeniu ran. Jakaś mieszanka energetyków z lekami zagęszczającymi krew. Picie hektolitrów nieznanych eliksirów musiało skończyć się śmiercią.
 
-Teoretycznie można by wykorzystać darmowy serwer [WebSocket](https://www.piesocket.com/blog/free-websocket-server) oraz [Ethereum](https://api.blockcypher.com/v1/eth/main) jako podstawę uproszczonego blockchaina. W ten sposób gracze mogli by zamieniać energię w statystyki na swoich przeglądarkach. By wykluczyć oszustwa wybrani uczestnicy mieliby prawo do odrzucenia dowolnej transakcji. Co byłoby sprzeczne z zasadami Blockchaina.
-
-### Walka
-
-Cały czas się zastanawiam, czy przy pomocy wzorów fizycznych nie dałoby się zrobić automatycznego systemu walki. Wystarczyłoby dynamiczne przebijanie zbroi. Zamiast obrażeń i siły miecza, podawałoby się jego długość, materiał i wagę. Tyle że ostatnio powstało już parę gier o walce na miecze (Mount&Blade, Kingdom Deliverance, Hellish Quart) i parodia nie jest tu nikomu potrzebna.
-
-### <s>Niemożliwa</s> Atmosfera ?
-
-*Tutaj najważniejsza jest atmosfera, nie nabijanie statystyk. To gra tekstowa, więc jako gracz będziesz musiał wykazać się wyobraźnią i ciekawymi pomysłami.*
-
-Wszystko ładnie, tyle że **ta gra to nic innego jak nabijanie statystyk**. Co z tego, że otworzyłem firmę budowlaną ? Że stałem się najlepszym rzemieślnikiem znanego świata ? Że zbudowałem klan na wyspie, który jako jedyny wiedział jak wygrać grę ? 99% czasu spędza się na klikaniu w miniaturowe linki i podnoszeniu statystyk do absurdalnych wielkości. Tak właściwie to autentyczne światy są bardzo rzadkie. Najbliżej jest Red Dead Redemption 2. Mi najprawdopodobniej nie uda się stworzyć niczego takiego.
-
-### Rozmowy globalne
-
-Obecnie mamy 2 standardy W3C (ActivityPub i MicroPub) oraz jeden prywatny standard Diaspory. I kilka mniejszych, których nikt nie używa. Wszystkie próbują odpowiedzieć na to samo pytanie - jak wysyłać wiadomości, eventy i polubienia między różnymi aplikacjami. Nawet Konfederacja włączyła się do [walki o wolność](https://twitter.com/krzysztofbosak/status/1348952744137285632). Problem w tym, że ActivityPub jest napisany ogólnie. Istnieje kilka wersji niekompatybilnych między sobą. I jeśli wprowadzę coś takiego to zaraz posypią się skargi "Dlaczego to nie działa jak Facebook ?", "dlaczego nie mogę wysłać wiadomości do Twittera ?", "X to otwarta sieć społecznościowa ale nie działa !!!". Z drugiej strony … jeśli tworzę grę opartą o wysyłanie wiadomości między sobą, możliwość rozmiawiania z całym światem byłaby cenna. Od strony kosztów mogę mieć jakieś 6.5 miliona wiadomości za darmo. Potem $0.015/GB.
-
-Wewnętrznie użyłbym Diaspory API.
-
-## Co dalej ?
-
-Pewnie zamiast to wszystko opisywać powinienem zaprezentować przynajmniej jakiś demko. Teraz się tym zajmie.
+Zrobię klona Orodlina będzie źle, zrobię coś nowego też będzie źle.
