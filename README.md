@@ -20,6 +20,7 @@ Zasada działania Ardoongi:
 - Wiadomości i strony profilowe są zapisywane w Amazon's S3.
 - Dla rzemieślników możliwość zatrudnienia pracowników NPC i łatwiejsze zawieranie umów handlowych z graczami.
 - Indywidualne statystyki i umiejętności (NoSQL lub JSON).
+- Labirynty = [Twine](https://twinery.org/) + wtyczki w Web Components.
 
 Jeśli chodzi o konta administratorów [RelMe](https://microformats.org/wiki/rel-me) wydaje się jedynym rozwiązaniem. <br />
 Zarządzanie użytkownikami lepiej powierzyć Auth0. Z dodatkową możliwością zalogowania się z Ethereum. <br />
