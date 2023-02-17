@@ -2,6 +2,7 @@
 RPG Engine with plugins
 
 Oto silnik RPG jako usługa. Twórcy gier będą dostarczać opisy, zdjęcia i statystyki. A ja zamienię je na działającą grę w stylu Vallheru. Samemu korzystając z usług firm zarządzających serwerami i bazami danych. 
+
 ---
 
 <details>
