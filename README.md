@@ -1,11 +1,11 @@
 # Ardoonga
 RPG Engine with plugins
 
-Tak właściwie nie jest to kompletna gra (jak Vallheru 1.6), a raczej platforma dla moderów. I nie mam najmniejszego pojęcia jak stworzyć wciągający, klimatyczny świat w stylu średniowiecznym.
-
+Oto silnik RPG jako usługa. Twórcy gier będą dostarczać opisy, zdjęcia i statystyki. A ja zamienię je na działającą grę w stylu Vallheru. Samemu korzystając z usług firm zarządzających serwerami i bazami danych. 
 ---
 
-Zasada działania Ardoongi:
+<details>
+  <summary>Zasada działania Ardoongi:</summary>
 
 - https://json-editor.github.io/json-editor/ umożliwia generowanie skryptów według schematu.
 - Ardoonga Team tworzy, aktualizuje i usuwa przestarzałe schematy (JSON Schema 7).
@@ -24,20 +24,18 @@ Zasada działania Ardoongi:
 
 Jeśli chodzi o konta administratorów [RelMe](https://microformats.org/wiki/rel-me) wydaje się jedynym rozwiązaniem. <br />
 Zarządzanie użytkownikami lepiej powierzyć Auth0. Z dodatkową możliwością zalogowania się z Ethereum. <br />
+</details>
 
-Fazy:
+<details>
+  <summary>Faza1: Static Site Generator + Postman Mockup</summary>
+  
+  https://replit.com/@onliniak/ArchipelagGenerator#main.cr
+  https://www.postman.com/onliniak/workspace/archipelag/overview
+  
+  Archipelag to poprzednia nazwa.
+</details>
 
-1. JSON Schema'sy.
-2. SSG.
-3. Interfejs mechaniczny.
-4. Logowanie.
-5. Serwer.
-
----
-
-Od strony samych graczy … <br />
-Myślałem nad prostym silnikiem fizycznym do walki mieczem. Coś na zasadzie mam 70 cm miecz w prawej ręce, wybieram sobie atak z boku, od góry lub po skosie. Atak mogę poprzedzić krokiem do przodu, czy półobrotem. Silnik oblicza w które miejsce i z jaką siłą uderzę. Wtedy oblicza jakość pancerza przeciwnika i jego zdolność do odbicia mojego ciosu. Bardziej realistyczna walka bronią, niszczenie zbroi i obrażenia. Ale jak wtedy wytłumaczyć walkę z wilkami i szczurami ?
-
-Albo miksturki lecznicze. Coś takiego musiałoby dostarczyć energii + natychmiast zapobiec krwawieniu i zakażeniu ran. Jakaś mieszanka energetyków z lekami zagęszczającymi krew. Picie hektolitrów nieznanych eliksirów musiało skończyć się śmiercią.
-
-Zrobię klona Orodlina będzie źle, zrobię coś nowego też będzie źle.
+<details>
+  <summary>Faza0: JSON Schema as configuration files</summary>
+  Jeszcze nic nie ma.
+</details>
