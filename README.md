@@ -8,7 +8,7 @@ serwerów i zerowej wiedzy o wydajności, czy bezpieczeństwie.
 Dzięki sztucznej inteligencji wszystko stało się prostsze. Tak czysto teoretycznie wystarczy jeśli napiszę generator API oparty o [Smithy](https://smithy.io/2.0/index.html) i wyraźnie 
 oddzielę część twórczą od technicznej. Jedynym wymaganiem jest Jinja jako język szablonów i [WASM](https://github.com/WebAssembly/wabt/blob/main/wasm2c/README.md). Chcę, by wtyczki napisane przez użytkowników działały wszędzie. Oni tworzą miasta, rasy, klasy i wzory matematyczne, a zdecentralizowane serwery zajmą się całym backendem. Prace nad paczką standardową (bardziej demo) prowadzone będą w innym repozytorium. W tym chcę napisać program, który napisze mi testy oraz kod serwera na podstawie próbek mojego kodu.
 
-Dawniej miałem w README notatki z wstępnymi szkicami całego systemu. Zachowałem sobie jedynie wzór na rzemiosło i mapę świata.
+<details> <summary>Dawniej miałem w README notatki z wstępnymi szkicami całego systemu. Zachowałem sobie jedynie wzór na rzemiosło i mapę świata.</summary>
 
 ```ruby
 trait     = 10 # Kowalstwo
@@ -29,3 +29,13 @@ itemlvl   = 1
 ```
 ![Pierwsza wersja mapy świata](https://camo.githubusercontent.com/e0ddea796c36b5de02d0c6d8274a5837740f42fb2461b6fa8bde6696929cdfee/68747470733a2f2f692e696d6775722e636f6d2f465657487271332e706e67)
 ![Druga wersja mapy świata](https://i.imgur.com/H3atLXT.jpeg)
+</details>
+<details> <summary> Konwencja </summary>
+* Metody nazywamy jak w [Rails](https://guides.rubyonrails.org/routing.html)ie.
+* Niedozwolone jest używanie przedrostka Arch i Archipelag.
+* Service to klasa, Operation to metoda ("definicja").
+* Przedrostek My wymaga autoryzacji.
+* Przyrostek HTML renderuje plik z dysku serwera.
+* Nigdzie nie widzę by było to zabronione, więc @required service oznacza interfejs (klasę abstrakcyjną).
+* Ardoonga będzie nazwą organizacji. Archipelag to nazwa silnika.
+</details>
