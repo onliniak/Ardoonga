@@ -1,6 +1,8 @@
 $version: "2"
 namespace io.archipelag.alchemy
 
+use io.archipelag.error#Generic401Error
+
 @documentation("Create *plants* from *fields* on *farm(land)*.")
 @httpApiKeyAuth(scheme: "ApiKey", name: "Authorization", in: "header")
 service HarvestBase {
@@ -68,20 +70,4 @@ operation PostHarvestNew {
 @http(method: "DELETE", uri: "/farm/{fieldID}")
 operation DeleteHarvestDestroy {
     output: GetServiceOutput
-}
-
-@error("client")
-@httpError(401)
-@documentation("*User* MUST login again.")
-structure Generic401Error {
-    @required
-    message: String
-}
-
-@error("client")
-@httpError(403)
-@documentation("*User* has wrong role.")
-structure Generic403Error {
-    @required
-    message: String
 }
