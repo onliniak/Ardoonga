@@ -42,5 +42,6 @@ itemlvl   = 1
   * Na przykład namespace io.archipelag.Xz zamień na namespace cośtam.Xz, a service XzBase na service Xz.
 * Nigdzie nie widzę by było to zabronione, więc @required service oznacza interfejs (klasę abstrakcyjną).
 * Ardoonga będzie nazwą organizacji oraz paczki standardowej. Archipelag to nazwa silnika.
+* Komentarze w stylu Haskell Guards zostawiłem sobie na sytuacje w stylu jeśli jestem zalogowany wyświetl A, a jeśli nie wyświetl B.
   
 </details>
