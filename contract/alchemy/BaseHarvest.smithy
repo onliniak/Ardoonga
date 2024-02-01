@@ -13,8 +13,8 @@ service HarvestBase {
     errors: [Generic401Error]
 }
 
-// io.archipelag.user#Owner$farm | 0 = @tags(["notFarm"])
-//                               | 1 = @tags(["hasFarm"])
+// io.archipelag.user#CurrentUser$Owner$farm | 0 = @tags(["notFarm"])
+//                                           | 1 = @tags(["hasFarm"])
 
 @documentation("*User* is not *farmland* owner. Return HTML form with new *farmland* creation.")
 @tags(["notFarm"])
