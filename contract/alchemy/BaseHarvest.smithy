@@ -13,8 +13,11 @@ service HarvestBase {
     errors: [Generic401Error]
 }
 
-@optionalAuth
+// io.archipelag.user#Owner$farm | 0 = @tags(["notFarm"])
+//                               | 1 = @tags(["hasFarm"])
+
 @documentation("*User* is not *farmland* owner. Return HTML form with new *farmland* creation.")
+@tags(["notFarm"])
 @http(method: "GET", uri: "/farm")
 operation GetFarmlandIndex {
     output: MyFarmlandFieldsOutputHTML
@@ -31,7 +34,7 @@ structure NoMoneyError {
     message: String
 }
 
-@optionalAuth
+@tags(["notFarm"])
 @documentation("Create new *farmland* with 1 *field*")
 @http(method: "POST", uri: "/farm")
 operation PostFarmlandIndex {
@@ -40,6 +43,7 @@ operation PostFarmlandIndex {
 }
 
 @documentation("Display a list of all *fields*.")
+@tags(["hasFarm"])
 @http(method: "GET", uri: "/farm")
 operation GetHarvestIndex {
     output: MyFarmlandFieldsOutput
