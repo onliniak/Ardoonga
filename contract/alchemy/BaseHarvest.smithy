@@ -20,12 +20,21 @@ service HarvestBase {
 @tags(["notFarm"])
 @http(method: "GET", uri: "/farm")
 operation GetFarmlandIndex {
-    output: MyFarmlandFieldsOutputHTML
-    errors: [NoMoneyError]
+    output: NewFarmlandHTML
 }
 
 @output
-structure MyOperationOutput {}
+structure NewFarmlandHTML {
+    html: string
+}
+
+@tags(["notFarm"])
+@documentation("Create new *farmland* with 1 *field*")
+@http(method: "POST", uri: "/farm")
+operation PostFarmlandIndex {
+    output: MyFarmlandFieldsOutput
+    errors: [NoMoneyError]
+}
 
 @error("client")
 @httpError(403)
@@ -34,20 +43,28 @@ structure NoMoneyError {
     message: String
 }
 
-@tags(["notFarm"])
-@documentation("Create new *farmland* with 1 *field*")
-@http(method: "POST", uri: "/farm")
-operation PostFarmlandIndex {
-    output: MyFarmlandFieldsOutput
-    errors: [NotFarmOwnerError]
-}
-
 @documentation("Display a list of all *fields*.")
 @tags(["hasFarm"])
 @http(method: "GET", uri: "/farm")
 operation GetHarvestIndex {
     output: MyFarmlandFieldsOutput
-    errors: [NotFarmOwnerError]
+}
+
+@output
+structure MyFarmlandFieldsOutput {
+    fields: FarmlandFields
+    html: string
+}
+
+@mixin
+structure FarmlandFields {
+    fields: FarmlandFieldsMap
+}
+
+map FarmlandFieldsMap {
+        fieldID:     Integer
+        plantTypeID: Integer,
+        plantNumber: Integer
 }
 
 @documentation("Display single *field*. Allow delete or create new *plants*.")
