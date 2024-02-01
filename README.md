@@ -31,6 +31,7 @@ itemlvl   = 1
 ![Druga wersja mapy świata](https://i.imgur.com/H3atLXT.jpeg)
 </details>
 <details> <summary> Konwencja </summary>
+  
 * Metody nazywamy jak w [Rails](https://guides.rubyonrails.org/routing.html)ie.
 * Niedozwolone jest używanie przedrostka Arch i Archipelag.
 * Service to klasa, Operation to metoda ("definicja").
@@ -38,4 +39,5 @@ itemlvl   = 1
 * Przyrostek HTML renderuje plik z dysku serwera.
 * Nigdzie nie widzę by było to zabronione, więc @required service oznacza interfejs (klasę abstrakcyjną).
 * Ardoonga będzie nazwą organizacji. Archipelag to nazwa silnika.
+  
 </details>
