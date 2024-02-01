@@ -37,7 +37,10 @@ itemlvl   = 1
 * Service to klasa, Operation to metoda ("definicja").
 * Przedrostek My wymaga autoryzacji.
 * Przyrostek HTML renderuje plik z dysku serwera.
+* Przyrostek Base oznacza klasę przeznaczoną tylko i wyłącznie do dziedziczenia.
+  * Żeby rozszerzyć klasę base skopiuj ostatni fragment namespace i usuń przyrostek Base.
+  * Na przykład namespace io.archipelag.Xz zamień na namespace cośtam.Xz, a service XzBase na service Xz.
 * Nigdzie nie widzę by było to zabronione, więc @required service oznacza interfejs (klasę abstrakcyjną).
-* Ardoonga będzie nazwą organizacji. Archipelag to nazwa silnika.
+* Ardoonga będzie nazwą organizacji oraz paczki standardowej. Archipelag to nazwa silnika.
   
 </details>
