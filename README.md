@@ -27,6 +27,14 @@ itemlvl   = 1
 # Wysoka siła zapewnia boost na niższych poziomach kowalstwa
 # Energia wciąż jest kluczem do wszystkiego
 ```
+
+<math xmlns="http://www.w3.org/1998/Math/MathML"><mtable class="tml-jot tml-abut" style="width:100%;" displaystyle="true" columnalign="left center right"><mtr><mtd style="padding:0;width:50%;"><mo>&#xA0;</mo></mtd><mtd><mi>&#x3c3;</mi><mo>=</mo><msqrt><mrow><mi>p</mi><mi>l</mi><mi>a</mi><mi>y</mi><mi>e</mi><mi>r</mi><mi>l</mi><mi>v</mi><msup><mi>l</mi><mn>2</mn></msup><mo>+</mo><mi>i</mi><mi>t</mi><mi>e</mi><mi>m</mi><mi>l</mi><mi>v</mi><msup><mi>l</mi><mn>2</mn></msup></mrow></msqrt></mtd><mtd style="padding:0;width:50%;text-align:-webkit-right;"><mo>&#xA0;</mo></mtd></mtr><mtr><mtd style="padding:0;width:50%;"><mo>&#xA0;</mo></mtd><mtd><mi>p</mi><mi>o</mi><mi>w</mi><mi>e</mi><mi>r</mi><mo>=</mo><msub><mi>log</mi><mi>&#x3c3;</mi></msub><mo>&#x2061;</mo><mspace width="0.1667em"/><mi>s</mi><mi>k</mi><mi>i</mi><mi>l</mi><msup><mi>l</mi><mrow><mi>t</mi><mi>r</mi><mi>a</mi><mi>i</mi><mi>t</mi></mrow></msup><mo lspace="0em" rspace="0em">&#x2044;</mo><mn>10</mn><mo>*</mo><mi>e</mi><mi>n</mi><mi>e</mi><mi>r</mi><mi>g</mi><mi>y</mi></mtd><mtd style="padding:0;width:50%;text-align:-webkit-right;"><mo>&#xA0;</mo></mtd></mtr><mtr><mtd style="padding:0;width:50%;"><mo>&#xA0;</mo></mtd><mtd><mo movablelimits="false">&#x2211;</mo><mo>=</mo><mi>p</mi><mi>o</mi><mi>w</mi><mi>e</mi><mi>r</mi><mo lspace="0em" rspace="0em">&#x2044;</mo><mi>i</mi><mi>t</mi><mi>e</mi><mi>m</mi><mi>l</mi><mi>v</mi><mi>l</mi></mtd><mtd style="padding:0;width:50%;text-align:-webkit-right;"><mo>&#xA0;</mo></mtd></mtr></mtable></math>
+
+<p><span class="math display">
+$$\sigma = \sqrt{playerlvl^{2} + itemlvl^{2}}  \newline
+power = \log_\sigma{skill^{trait}} / 10*energy \newline
+\sum = power/itemlvl$$</span></p>
+
 ![Pierwsza wersja mapy świata](https://camo.githubusercontent.com/e0ddea796c36b5de02d0c6d8274a5837740f42fb2461b6fa8bde6696929cdfee/68747470733a2f2f692e696d6775722e636f6d2f465657487271332e706e67)
 ![Druga wersja mapy świata](https://i.imgur.com/H3atLXT.jpeg)
 </details>
