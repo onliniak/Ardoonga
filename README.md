@@ -6,7 +6,7 @@ A że oryginalny kod to czarna magia wpadłem na pomysł, by wyrzucić go i zacz
 serwerów i zerowej wiedzy o wydajności, czy bezpieczeństwie.
 
 Dzięki sztucznej inteligencji wszystko stało się prostsze. Tak czysto teoretycznie wystarczy jeśli napiszę generator API oparty o [Smithy](https://smithy.io/2.0/index.html) i wyraźnie 
-oddzielę część twórczą od technicznej. Jedynym wymaganiem jest Jinja jako język szablonów i [WASM](https://github.com/WebAssembly/wabt/blob/main/wasm2c/README.md). Chcę, by wtyczki napisane przez użytkowników działały wszędzie. Oni tworzą miasta, rasy, klasy i wzory matematyczne, a zdecentralizowane serwery zajmą się całym backendem. Prace nad paczką standardową (bardziej demo) prowadzone będą w innym repozytorium. W tym chcę napisać program, który napisze mi testy oraz kod serwera na podstawie próbek mojego kodu.
+oddzielę część twórczą od technicznej. Jedynym wymaganiem jest Jinja jako język szablonów i [WASM](https://github.com/bytecodealliance/wasm-micro-runtime/blob/main/doc/embed_wamr.md). Chcę, by wtyczki napisane przez użytkowników działały wszędzie. Oni tworzą miasta, rasy, klasy i wzory matematyczne, a zdecentralizowane serwery zajmą się całym backendem. Prace nad paczką standardową (bardziej demo) prowadzone będą w innym repozytorium. W tym chcę napisać program, który napisze mi testy oraz kod serwera na podstawie próbek mojego kodu.
 
 <details> <summary>Dawniej miałem w README notatki z wstępnymi szkicami całego systemu. Zachowałem sobie jedynie wzór na rzemiosło i mapę świata.</summary>
 
@@ -43,6 +43,8 @@ power = \log_\sigma{skill^{trait}} / 10*energy \newline
 * Metody nazywamy jak w [Rails](https://guides.rubyonrails.org/routing.html)ie.
 * Niedozwolone jest używanie przedrostka Arch i Archipelag.
 * Service to klasa, Operation to metoda ("definicja").
+* Operacje zapisujemy jako HTTPmetodaKlasaFunkcja np. GetHarvestIndex.
+* I/O kończymy przyrostkiem Input/Output.
 * Przedrostek My wymaga autoryzacji.
 * Przyrostek HTML renderuje plik z dysku serwera.
 * Przyrostek Base oznacza klasę przeznaczoną tylko i wyłącznie do dziedziczenia.
@@ -53,3 +55,11 @@ power = \log_\sigma{skill^{trait}} / 10*energy \newline
 * Komentarze w stylu Haskell Guards zostawiłem sobie na sytuacje w stylu jeśli jestem zalogowany wyświetl A, a jeśli nie wyświetl B.
   
 </details>
+<!-- <details> <summary> Bezpieczeństwo </summary>
+  
+  * HTML nie jest większym problemem. Wystarczy przejściówka Jinja → Sanitizer → ECR + OWASP.
+  * Wzory matematyczne będzie można podać generatorowi w postaci LaTex.
+    * Myślałem też nad WASM, czy nawet seccomp ale coś takiego wymagałoby już wiedzy.
+    * Nawet gdyby było to opcjonalne maksymalny czas wykonywania = 1ms.
+  
+</details> -->
