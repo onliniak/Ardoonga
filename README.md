@@ -65,7 +65,7 @@ power = \log_\sigma{skill^{trait}} / 10*energy \newline
     * W sumie … o ile nie ma błędu dostęp do kodu w innym namespace będzie utrudniony.
   
 </details> -->
-<-- <details> <summary> Bitcoin-like | PHP | i takie tam </summary>
+<!-- <details> <summary> Bitcoin-like | PHP | i takie tam </summary>
   Prędzej czy później serwery padną. Dlatego świetnym pomysłem będzie uzależnienie się od serwisu, nad którym nie mam kontroli. 
   Wystarczy, że będzie tam działała bieda kopia blockchaina. Jakiś czas temu trafiłem na [darmowy serwer WebSockets](https://piehost.com/blog/free-websocket-server). 
   Przypominam, że zarówno serwery jak i przeglądarki mogą łączyć się z WebSocketami bez większego problemu. 
@@ -89,3 +89,4 @@ power = \log_\sigma{skill^{trait}} / 10*energy \newline
   Z tego co wiem PHP nie da się obecnie użyć w WebAssembly. Jakiś czas temu trafiłem na [PH7](https://github.com/symisc/PH7). Może się przydać. 
   Zakładając, że zanim przestanie działać ktoś opracuje metodę zamiany PHP na WASM. Możliwości naprawy PH7 oceniam na zerowe.
 </details>
+-->
