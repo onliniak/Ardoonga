@@ -60,6 +60,32 @@ power = \log_\sigma{skill^{trait}} / 10*energy \newline
   * HTML nie jest większym problemem. Wystarczy przejściówka Jinja → Sanitizer → ECR + OWASP.
   * Wzory matematyczne będzie można podać generatorowi w postaci LaTex.
     * Myślałem też nad WASM, czy nawet seccomp ale coś takiego wymagałoby już wiedzy.
-    * Nawet gdyby było to opcjonalne maksymalny czas wykonywania = 1ms.
+    * Nawet gdyby było to opcjonalne maksymalny czas wykonywania = 5 µs.
+      * W przybliżeniu odpowiada to 1 µs kodu realnego.
+    * W sumie … o ile nie ma błędu dostęp do kodu w innym namespace będzie utrudniony.
   
 </details> -->
+<-- <details> <summary> Bitcoin-like | PHP | i takie tam </summary>
+  Prędzej czy później serwery padną. Dlatego świetnym pomysłem będzie uzależnienie się od serwisu, nad którym nie mam kontroli. 
+  Wystarczy, że będzie tam działała bieda kopia blockchaina. Jakiś czas temu trafiłem na [darmowy serwer WebSockets](https://piehost.com/blog/free-websocket-server). 
+  Przypominam, że zarówno serwery jak i przeglądarki mogą łączyć się z WebSocketami bez większego problemu. 
+  Mamy też praktycznie gotowy szkic protokołu rzekomo automatycznie-się-naprawiającego. Tym bardziej, że u mnie nie ma żadnego kopania. 
+
+  Serwery wysyłają wiadomości w stylu JSON-RPC w świat. Każda taka wiadomość to transakcja. 
+  Raz na godzinę serwer przywódca publikuje ID ostatniej transakcji w bloku. 
+  Serwery sprawdzają, czy wszystkie bloki mają taki sam hash jak przywódcy. 
+  Jeśli nie dopisujemy karę +1, jeśli mają +1 punkt. Jeśli przywódca będzie offline 
+  serwer z największą ilością punktów zostaje nowym. Jeśli 2 mają identyczną liczbę to wygrywa starszy. 
+  
+  Wszystkie bloki będą do przejrzenia na GitHubie. 
+  Transakcje zawierają informacje potrzebne do wywołania funkcji, bez jej wyniku. 
+  Z tego powodu zamiast losowych generatorów liczb będziemy używać [obecnego](https://www.blockcypher.com/dev/ethereum/#introduction) hasza bloku Ethereum. 
+  Nowe hasze będziemy pobierać co 36 sekund. Ewentualnie https://blockchain.info/latestblock. W obu przypadkach interesuje mnie lista numerów transakcji. 
+  Jeśli każdy serwer będzie miał identyczny PRNG, a seed będzie losowo generowany z listy transakcji to powstanie skończona liczba wartości liczbowych. 
+  Już widzę te poradniki w której sekundzie kliknąć, by wygrać.
+
+  ---
+
+  Z tego co wiem PHP nie da się obecnie użyć w WebAssembly. Jakiś czas temu trafiłem na [PH7](https://github.com/symisc/PH7). Może się przydać. 
+  Zakładając, że zanim przestanie działać ktoś opracuje metodę zamiany PHP na WASM. Możliwości naprawy PH7 oceniam na zerowe.
+</details>
