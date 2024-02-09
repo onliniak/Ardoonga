@@ -1,0 +1,13 @@
+name: smithy-generator
+version: 0.1.0
+
+authors:
+  - your-name-here <your-email-here>
+
+targets:
+  smithy-generator:
+    main: src/smithy-generator.cr
+
+crystal: 1.2.2
+
+license: MIT
