@@ -1,0 +1,206 @@
+= Ardoonga
+
+Międzyplatformowa Gra tekstowa jako usługa w stylu CSS.
+
+_Program tak w zasadzie jeszcze nie powstał, więc wszystko
+może się zmienić z dnia na dzień_
+
+== Co teraz ?
+
+W Zakładce Wiki zapisałem jak stworzyć grę RPG
+w stylu Vallheru z kilkoma ulepszeniami dla
+rzemieślników.
+
+Nigdy nie nauczyłem się niczego, z tego typu
+samouczków, więc zapewne będzie kiepskiej jakości.
+
+=== Co dalej ?
+
+W katalogu implementations/* znajdziesz wszystkie aktualnie
+wspierane komponenty. Na razie planowane są wersje SolidJS,
+Kotlin Android Compose JetPack i SwiftUI.
+
+== Format plików
+
+Pliki .ardoonga przypominają mix CSS i ASCIIDoca.
+
+main.ardoonga
+```adoc
+:photo: Zdjęcie.png
+:txt: Dokument.docx
+:txt-class: red
+:import: Wybór.ardoonga
+```
+Wybór.ardoonga
+```adoc
+:opcja A-TxT: Dobry Wybór
+:opcja B-TxT: Zły Wybór.docx
+
+:opcja A-location: ABC.html
+:opcja B-GameOver: true
+```
+
+Powyższy przykład można przedstawić jako JSON:
+
+```json
+{
+"photo": "Zdjęcie.png",
+"txt": {
+    "txt": "Dokument.docx",
+    "class": "red"
+},
+"options": {
+    "a": {
+        "txt": "Dobry Wybór.docx",
+        "location": "ABC.html"
+    },
+    "b": {
+        "txt": "Zły Wybór.docx",
+        "gameover": true
+    }
+}}
+```
+
+Z programistycznego punktu widzenia wersja JSON jest
+o wiele czytelniejsza ale czy nadaje się do pracy z
+metodą Kopiuj & Wklej ? Niezbyt.
+
+Za to opcja powyżej wygląda dziwnie ale
+jest odporna na proste problemy w stylu:
+
+białe znaki, różne style pisma, zgubione nawiasy,
+czy średniki.
+
+Cały "język" dostępny jest jako zbiór plików JSON Schema
+co powinno ułatwić importowanie i exportowanie go do
+innych formatów. Szukaj w katalogu json-schema.
+
+== Backend
+
+Ardoonga wykorzystuje link:https://smithy.io/2.0/quickstart.html[Smithy Lang]
+do automatycznego generowania części serwerowej.
+Szukaj w katalogu smithy.
+
+Oprócz tego używa publicznego serwera do przechowywania
+danych (opcjonalnie) by Twórcy Gier nie musieli się męczyć
+z konfiguracją własnych serwerów.
+
+1. Gracz zmienia lokację, kupuje coś w sklepie itp.
+2. Informacja o tym idzie na prywatną grupę Hubzilli (konto gościa).
+3. Gracze mogą dodawać dane ale nie mogą ich zmieniać, ani usuwać.
+4. Raz na godzinę serwer na GitHubie zbiera wszystkie wiadomości.
+5. I aktualizuje "bazę danych" w formie plików JSON.
+6. Klient co godzinę pobiera aktualizacje prosto z serwera.
+7. Lokalne zmiany zapisywane są w pamięci tymczasowej klienta.
+
+== ViewModel
+
+Zacznijmy od tradycyjnego demka Fluttera:
+
+1. Przycisk z napisem "increment".
+2. Obok tekst Count: 0
+3. Liczba się zwiększa o 1 po każdym naciśnięciu przycisku.
+
+```asciidoc
+:action-dodawanie: F(x) = x + 1
+
+:button: increment
+:action-click: dodawanie
+
+:text: Count $
+:action: dodawanie
+```
+
+Gdzie pierwsza zmienna to znak dolara ($),
+druga dwa dolary ($$), trzecia trzy dolary itp.
+(Zmienne zwracane są wewnątrz arraya)
+
+=== Matematyka
+
+W tej chwili dostępne są dwie funkcje:
+
+`F(x) = x + 1`
+
+```c
+extern int dodawanie(int number) {
+    return number + 1
+}
+```
+
+Albo:
+
+`lvl = 2 ⇒ hp = 4``
+
+```c
+extern int dodawanie(int number) {
+    if(lvl == 2){
+        hp = 4;
+        return hp;
+    }
+}
+```
+
+=== DesignTokens [ReUse Components]
+
+Ardoonga pozwala na tworzenie link:https://tr.designtokens.org/format/[Design Tokenów].
+
+`:*-id: nazwa` => dodaje cały boilerplate
+
+```adoc
+:txt-id: typowytekst
+:txt: typowy
+```
+
+```json
+{
+  "typowytekst-token": {
+    "$type": "txt",
+    "$value": {
+      "txt": "typowy"
+    }
+  }
+}
+```
+
+Jeśli potem w dowolnym miejscu napiszesz `:typowytekst:`
+to kompilator wstawi obiekt txt o wartości "typowy"
+
+=== Cykl Życia
+
+W tej chwili mamy:
+
+* on-file-start
+* on-file-end
+* *-on-start
+* *-on-end
+
+```adoc
+:on-file-start: {"key" =
+:txt-id: test
+
+:test-on-start: "
+:test: value
+:test-on-end: "
+
+:on-file-end: }
+```
+
+```json
+{"key" ="value"}
+```
+
+Jeśli użyjesz ich kilka:
+
+```adoc
+:on-file-start: A
+:on-file-start: A
+:on-file-end: a
+```
+
+`AAa`
+
+== Dodatkowe API
+
+Ardoonga wykorzystuje link:https://webassembly.github.io/spec/core/[WebAssembly] i link:https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API[Canvas 2D API]
+do zarządzania logiką biznesową i wyświetlania
+niestandardowych elementów na ekranie.
