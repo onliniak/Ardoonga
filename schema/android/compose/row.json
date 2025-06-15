@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://onliniak.github.io/Ardoonga/schema/android/compose/row.json",
+  "title": "Row",
+  "description": "Horizontally organize your app components",
+  "examples": [
+    "file-content-base64=cGFja2FnZSBjb20uZXhhbXBsZS48JSBhcHBsaWNhdGlvbi1uYW1lICU-CgppbXBvcnQgYW5kcm9pZHguY29tcG9zZS5mb3VuZGF0aW9uLmxheW91dC5Sb3cKCkBDb21wb3NhYmxlCmZ1biA8JT0gZmlsZW5hbWUgJT4oKSB7CiAgICBSb3cgezwlIHlpZWxkICU-fQp9"
+  ],
+  "type": "object",
+  "additionalProperties": {
+    "filename": {
+      "type": "string"
+    }
+  },
+  "patternProperties": {
+    ".*": {
+      "$ref": "https://onliniak.github.io/Ardoonga/schema/common-components.json"
+    }
+  }
+}

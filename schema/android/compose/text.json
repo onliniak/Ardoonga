@@ -1,0 +1,7 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://onliniak.github.io/Ardoonga/schema/common-components.json",
+    "examples": ["file-content-base64=cGFja2FnZSBjb20uZXhhbXBsZS48JSBhcHBsaWNhdGlvbi1uYW1lICU-CgppbXBvcnQgYW5kcm9pZHguY29tcG9zZS5tYXRlcmlhbDMuVGV4dAoKQENvbXBvc2FibGUKZnVuIEdyZWV0aW5nVGV4dCgpIHsKICAgIFRleHQoCiAgICAgICAgdGV4dCA9ICI8JT0gY29udGVudCAlPiIsCiAgICApCn0"],
+    "type": "object",
+    "$ref": "https://onliniak.github.io/Ardoonga/schema/common-components.json#/definitions/text"
+}

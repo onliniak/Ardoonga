@@ -1,0 +1,17 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://onliniak.github.io/Ardoonga/schema/common-components.json",
+    "type": "object",
+    "properties": {
+        "text": {
+            "title": "Text",
+            "description": "Display text on screen",
+            "type": "object",
+            "properties": {
+                "content": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

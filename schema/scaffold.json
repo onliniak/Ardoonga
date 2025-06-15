@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://onliniak.github.io/Ardoonga/schema/scaffold.json",
+  "title": "Scaffold",
+  "description": "Entry point in your application",
+  "type": "object",
+  "properties": {
+    "application": {
+      "type": "object",
+      "properties": {
+        "name": {"type": "string"}
+      }
+    },
+    "row": {
+      "type": "object",
+      "$anchor": "row"
+    },
+    "column": {
+      "type": "object",
+      "$anchor": "column"
+    }
+  },
+  "additionalProperties": false
+}
